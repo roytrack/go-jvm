@@ -64,13 +64,16 @@ func readValues(infile string)(values []int, err error){
 			return
 		}
 		str := string(line)
-		value,err1 :=strconv.Atoi(str)
-		if err1 != nil{
-			fmt.Println("convert err",err1,"value is @",str,"@the",lineNum,"line")
-			err = err1
-			return
+		if str !=" "&& str !=""{
+			value,err1 :=strconv.Atoi(str)
+			if err1 != nil{
+				fmt.Println("convert err",err1,"value is @",str,"@the",lineNum,"line")
+				err = err1
+				return
+			}
+			values = append(values,value)
 		}
-		values = append(values,value)
+
 	}
 	return
 }
