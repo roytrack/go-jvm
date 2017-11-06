@@ -10,7 +10,7 @@ func quickSort(values []int,left,right int)  {
 			j--
 		}
 
-	for j>=p{
+	if j>=p{
 		values[p] =values[j]
 		p = j
 	}

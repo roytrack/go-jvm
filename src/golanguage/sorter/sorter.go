@@ -49,13 +49,15 @@ func readValues(infile string)(values []int, err error){
 	defer file.Close()
 	br := bufio.NewReader(file)
 	values =make([]int,0)
+	lineNum :=0
 	for{
-		lineNum :=0
 		line,isPrefix,err1 := br.ReadLine()
 		lineNum++
 		if err1 !=nil {
 			if err1 != io.EOF{
 				err=err1
+				break
+			}else{
 				break
 			}
 		}
